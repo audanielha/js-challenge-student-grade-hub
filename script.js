@@ -10,9 +10,18 @@ let students = [
 let addStudent = (newStudent) => {
     students.push(newStudent)
 }
+
+let removeStudent = (removeID) => {
+    for(let i = 0; i < students.length; i++){
+        if(students[i].id === removeID){
+            delete students[i]
+        }
+    }
+}
 console.log(students)
+
 // Example usage
 addStudent({ id: 4, name: 'David', grades: [95, 89, 92] });
-// removeStudent(2);
+removeStudent(2);
 // addGrade(1, 95);
 // console.log(calculateAverageGrade(1));  // Output the average grade for Alice
