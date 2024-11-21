@@ -7,8 +7,12 @@ let students = [
 
 // Function implementations (addStudent, removeStudent, addGrade, calculateAverageGrade)
 
+let addStudent = (newStudent) => {
+    students.push(newStudent)
+}
+console.log(students)
 // Example usage
 addStudent({ id: 4, name: 'David', grades: [95, 89, 92] });
-removeStudent(2);
-addGrade(1, 95);
-console.log(calculateAverageGrade(1));  // Output the average grade for Alice
+// removeStudent(2);
+// addGrade(1, 95);
+// console.log(calculateAverageGrade(1));  // Output the average grade for Alice
