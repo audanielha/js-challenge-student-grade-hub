@@ -14,14 +14,33 @@ let addStudent = (newStudent) => {
 let removeStudent = (removeID) => {
     for(let i = 0; i < students.length; i++){
         if(students[i].id === removeID){
-            delete students[i]
+            students.splice(i, 1)
+            break;
         }
     }
 }
-console.log(students)
+
+let addGrade = (id, grade) => {
+    for(let i = 0; i < students.length; i++){
+        if(students[i].id === id){
+            students[i].grades.push(grade);
+        }
+    }
+}
+
+let calculateAverageGrade = (id) =>{
+    for(let i = 0; i < students.length; i++){
+        if(students[i].id === id){
+            let grades = students[i].grades;
+            let sum = grades.reduce((acc, grade) => acc + grade, 0);
+            return sum / grades.length;
+        }
+    }
+}
 
 // Example usage
 addStudent({ id: 4, name: 'David', grades: [95, 89, 92] });
 removeStudent(2);
-// addGrade(1, 95);
-// console.log(calculateAverageGrade(1));  // Output the average grade for Alice
+addGrade(1, 95);
+console.log(calculateAverageGrade(4));  // Output the average grade for Alice
+
